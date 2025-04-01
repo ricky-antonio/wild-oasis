@@ -1,6 +1,6 @@
 import Heading from "../ui/Heading";
 
-function Settings() {
+const Settings = () => {
   return <Heading as="h1">Update hotel settings</Heading>;
 }
 

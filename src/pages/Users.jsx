@@ -1,6 +1,6 @@
 import Heading from "../ui/Heading";
 
-function NewUsers() {
+const NewUsers = () => {
   return <Heading as="h1">Create a new user</Heading>;
 }
 

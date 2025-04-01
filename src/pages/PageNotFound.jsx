@@ -27,7 +27,7 @@ const Box = styled.div`
   }
 `;
 
-function PageNotFound() {
+const PageNotFound = () => {
   const moveBack = useMoveBack();
 
   return (
