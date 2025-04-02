@@ -11,14 +11,23 @@ export const getCabins = async () => {
     return data;
 };
 
-export const deleteCabin = (id) => async () => {
+export const deleteCabin = async (id) => {
+    const { error } = await supabase.from("cabins").delete().eq("id", id);
+
+    if (error) {
+        console.log(error);
+        throw new Error("Cabin could not be deleted.");
+    }
+};
+
+export const createCabin  =  async (newCabin) => {
     const { error } = await supabase
         .from("cabins")
-        .delete()
-        .eq("id", id);
+        .insert(newCabin)
+        .select();
     
         if (error) {
             console.log(error);
-            throw new Error("Cabin could not be deleted.");
+            throw new Error("Cabin could not be added.");
         }
 };

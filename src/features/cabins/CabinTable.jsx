@@ -36,13 +36,11 @@ const CabinTable = () => {
         queryFn: getCabins,
     });
 
-    if (isLoading) {
-        return <Spinner />
-    }
+    if (isLoading) return <Spinner />
+    
 
-    if (isError) {
-        return <span>Error: {error.message}</span>;
-    }
+    if (isError) return <span>Error: {error.message}</span>;
+    
     return (
         <Table role="table">
             <TableHeader role="row">

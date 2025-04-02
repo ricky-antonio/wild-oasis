@@ -51,7 +51,7 @@ const CabinRow = ({ cabin }) => {
 
     // Mutations
     const { isLoading: isDeleting, mutate } = useMutation({
-        mutationFn: deleteCabin(id),
+        mutationFn: deleteCabin,
         onSuccess: () => {
             toast.success("Cabin successfully deleted!")
 
