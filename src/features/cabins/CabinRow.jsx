@@ -3,6 +3,8 @@ import { formatCurrency } from "../../utils/helpers";
 import { useState } from "react";
 import CreateCabinForm from "./CreateCabinForm";
 import useDeleteCabin from "./useDeleteCabin";
+import { HiPencil, HiSquare2Stack, HiTrash } from "react-icons/hi2";
+import useCreateCabin from "./useCreateCabin";
 
 const TableRow = styled.div`
     display: grid;
@@ -44,10 +46,23 @@ const Discount = styled.div`
 `;
 
 const CabinRow = ({ cabin }) => {
-    const { id, name, max_capacity, regular_price, discount, image } = cabin;
+    const { id, name, max_capacity, regular_price, discount, image, description } = cabin;
     const [showForm, setShowForm] = useState(false);
 
-    const {isDeleting, deleteCabin} = useDeleteCabin();
+    const { isCreating, createCabin } = useCreateCabin();
+
+    const { isDeleting, deleteCabin } = useDeleteCabin();
+
+    const handleDuplicate = () => {
+        createCabin({
+            name: `copy of ${name}`,
+            max_capacity,
+            regular_price,
+            discount,
+            image,
+            description
+        })
+    }
 
     return (
         <>
@@ -56,10 +71,17 @@ const CabinRow = ({ cabin }) => {
                 <Cabin>{name}</Cabin>
                 <div>Fits up to {max_capacity} guests</div>
                 <Price>{formatCurrency(regular_price)}</Price>
-                {discount ? <Discount>{formatCurrency(discount)}</Discount> : <span>&mdash;</span>}
+                {discount ? (
+                    <Discount>{formatCurrency(discount)}</Discount>
+                ) : (
+                    <span>&mdash;</span>
+                )}
                 <div>
+                    <button disabled={isCreating} onClick={handleDuplicate}>
+                        <HiSquare2Stack />
+                    </button>
                     <button onClick={() => setShowForm((show) => !show)}>
-                        edit
+                        <HiPencil />
                     </button>
                     <button
                         disabled={isDeleting}
@@ -67,11 +89,11 @@ const CabinRow = ({ cabin }) => {
                             deleteCabin(id);
                         }}
                     >
-                        delete
+                        <HiTrash />
                     </button>
                 </div>
             </TableRow>
-            {showForm && <CreateCabinForm cabinToEdit={cabin} /> }
+            {showForm && <CreateCabinForm cabinToEdit={cabin} />}
         </>
     );
 };
