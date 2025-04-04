@@ -3,24 +3,17 @@ import Button from "../../ui/Button";
 import CreateCabinForm from "./CreateCabinForm";
 import Modal from "../../ui/Modal";
 
-const AddCabin = () => {
-    const [isOpenModal, setIsOpenModal] = useState();
 
+const AddCabin = () => {
     return (
-        <div>
-            <Button
-                $variation="primary"
-                size="medium"
-                onClick={() => setIsOpenModal((showForm) => !showForm)}
-            >
-                Add new cabin
-            </Button>
-            {isOpenModal && (
-                <Modal onClose={() => setIsOpenModal(false)}>
-                    <CreateCabinForm onCloseModal={() => setIsOpenModal(false)} />
-                </Modal>
-            )}
-        </div>
+        <Modal>
+            <Modal.Open opens="cabin-form">
+                <Button $variation="primary" size="medium">Add new cabin</Button>
+            </Modal.Open>
+            <Modal.Window name="cabin-form">
+                <CreateCabinForm />
+            </Modal.Window>
+        </Modal>
     );
 };
 
