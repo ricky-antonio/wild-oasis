@@ -108,23 +108,29 @@ const Toggle = ({ id }) => {
 const List = ({ id, children }) => {
     const { openId, position, close } = useContext(MenusContext);
 
-    const {ref} = useOutsideClick(close)
+    const { ref } = useOutsideClick(close);
 
     if (openId !== id) return null;
 
-    return <StyledList position={position} ref={ref}>{children}</StyledList>
+    return (
+        <StyledList position={position} ref={ref}>
+            {children}
+        </StyledList>
+    );
 };
 
 const Button = ({ children, icon, onClick }) => {
-    const {close} = useContext(MenusContext)
+    const { close } = useContext(MenusContext);
     const handleClick = () => {
         onClick?.();
         close();
-    }
+    };
 
     return (
         <li>
-            <StyledButton onClick={handleClick}>{icon} <span>{children}</span></StyledButton>
+            <StyledButton onClick={handleClick}>
+                {icon} <span>{children}</span>
+            </StyledButton>
         </li>
     );
 };
