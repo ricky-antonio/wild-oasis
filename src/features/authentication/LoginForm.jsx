@@ -14,7 +14,14 @@ const LoginForm = () => {
     function handleSubmit(e) {
         e.preventDefault();
         if (!email || !password) return;
-        login({ email, password });
+        login(
+            { email, password },
+            {
+                onSettled: () => {
+                    setPassword("");
+                },
+            }
+        );
     }
 
     return (
@@ -43,7 +50,11 @@ const LoginForm = () => {
             </FormRowVertical>
 
             <FormRowVertical>
-                <Button $variation="primary" size="large" disabled={isLoggingIn} >
+                <Button
+                    $variation="primary"
+                    size="large"
+                    disabled={isLoggingIn}
+                >
                     {isLoggingIn ? <SpinnerMini /> : "Login"}
                 </Button>
             </FormRowVertical>
