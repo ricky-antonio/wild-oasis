@@ -5,7 +5,7 @@ import Input from "../../ui/Input";
 
 // Email regex: /\S+@\S+\.\S+/
 
-function SignupForm() {
+const SignupForm = () => {
   return (
     <Form>
       <FormRow label="Full name" error={""}>

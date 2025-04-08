@@ -1,6 +1,6 @@
 import Filter from 'ui/Filter';
 
-function DashboardFilter() {
+const DashboardFilter = () => {
   return (
     <Filter
       filterField='last'

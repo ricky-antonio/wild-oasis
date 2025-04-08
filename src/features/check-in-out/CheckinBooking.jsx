@@ -24,7 +24,7 @@ const Box = styled.div`
     padding: 2.4rem 4rem;
 `;
 
-function CheckinBooking() {
+const CheckinBooking = () => {
     const [confirmPaid, setConfirmPaid] = useState(false);
     const [addBreakfast, setAddBreakfast] = useState(false);
     const { isLoading, isError, booking, error } = useBooking();
@@ -60,7 +60,7 @@ function CheckinBooking() {
     const optionalBreakfastPrice =
         settings.breakfast_price * num_nights * num_guests;
 
-    function handleCheckin() {
+    const handleCheckin = () => {
         if (!confirmPaid) return;
 
         if (addBreakfast) {

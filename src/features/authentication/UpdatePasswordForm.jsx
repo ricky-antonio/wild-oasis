@@ -6,7 +6,7 @@ import Input from "../../ui/Input";
 
 import { useUpdateUser } from "./useUpdateUser";
 
-function UpdatePasswordForm() {
+const UpdatePasswordForm = () => {
   const { register, handleSubmit, formState, getValues, reset } = useForm();
   const { errors } = formState;
 

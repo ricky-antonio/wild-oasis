@@ -10,7 +10,7 @@ const LoginLayout = styled.main`
   background-color: var(--color-grey-50);
 `;
 
-const Login =() => {
+const Login = () => {
   return <LoginLayout>Login</LoginLayout>;
 }
 

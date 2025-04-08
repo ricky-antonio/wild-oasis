@@ -36,7 +36,7 @@ const NoActivity = styled.p`
   margin-top: 0.8rem;
 `;
 
-function Today() {
+const Today = () => {
   return (
     <StyledToday>
       <Row type="horizontal">
