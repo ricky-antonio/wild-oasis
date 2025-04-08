@@ -11,9 +11,11 @@ const useLogin = () => {
 
     const { mutate: login, isLoading } = useMutation({
         mutationFn: ({ email, password }) => loginApi({ email, password }),
-        onSuccess: (user) => {
-            navigate("/dashboard");
-            queryClient.setQueriesData(["user"], user);
+        onSuccess: (data) => {
+            navigate("/dashboard", {replace: true});
+            console.log("data | ", data)
+            console.log("data.user | ", data.user)
+            queryClient.setQueryData(["user"], data.user);
         },
         onError: (err) => {
             console.log("ERROR ", err);

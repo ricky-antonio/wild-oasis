@@ -6,6 +6,10 @@ const ButtonIcon = styled.button`
   padding: 0.6rem;
   border-radius: var(--border-radius-sm);
   transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 
   &:hover {
     background-color: var(--color-grey-100);
