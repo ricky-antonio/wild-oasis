@@ -18,7 +18,7 @@ const useRecentStays = () => {
 
     const confirmedStays = stays?.filter((stay) => stay.status === "checked-in" || stay.status === "checked-out");
 
-    return { isLoading, confirmedStays };
+    return { isLoading, confirmedStays, numDays };
 };
 
 export default useRecentStays;
