@@ -9,6 +9,7 @@ import { cabins } from "./data-cabins";
 import { guests } from "./data-guests";
 import styled from "styled-components";
 import Heading from "../ui/Heading";
+import { useNavigate } from "react-router-dom";
 
 // const originalSettings = {
 //   minBookingLength: 3,
@@ -115,6 +116,7 @@ const StyledUploader = styled.div`
 
 function Uploader() {
     const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
 
     async function uploadAll() {
         setIsLoading(true);
@@ -129,6 +131,7 @@ function Uploader() {
         await createBookings();
 
         setIsLoading(false);
+        navigate("/")
     }
 
     async function uploadBookings() {
@@ -136,6 +139,8 @@ function Uploader() {
         await deleteBookings();
         await createBookings();
         setIsLoading(false);
+        navigate("/")
+
     }
 
     return (
