@@ -49,6 +49,7 @@ export const updateCurrentUser = async ({
     avatar,
 }) => {
     //update password or full name
+    throw new Error("This action requires Admin permissions.");
     let updateData;
     if (password) updateData = { password };
     if (full_name) updateData = { data: { full_name } };

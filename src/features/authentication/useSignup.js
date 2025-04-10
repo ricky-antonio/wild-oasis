@@ -8,6 +8,9 @@ const useSignup = () => {
         onSuccess: (data) => {
             console.log(data);
             toast.success("Account successfully created!")
+        },
+        onError: () => {
+            toast.error("This action requires Admin permissions.")
         }
     })
 
