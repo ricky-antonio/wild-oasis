@@ -1,6 +1,12 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { HiCalendarDays, HiOutlineCog6Tooth, HiOutlineHome, HiOutlineHomeModern, HiOutlineUsers } from "react-icons/hi2";
+import {
+    HiCalendarDays,
+    HiOutlineCog6Tooth,
+    HiOutlineHome,
+    HiOutlineHomeModern,
+    HiOutlineUsers,
+} from "react-icons/hi2";
 
 const NavList = styled.ul`
     display: flex;
@@ -45,6 +51,16 @@ const StyledNavLink = styled(NavLink)`
     &.active:visited svg {
         color: var(--color-brand-600);
     }
+
+    @media (max-width: 900px) {
+        &:link,
+        &:visited {
+            padding: 1rem 1rem;
+        }
+        & span {
+            display: none;
+        }
+    }
 `;
 
 const mainNav = () => {
@@ -59,30 +75,28 @@ const mainNav = () => {
                 </li>
                 <li>
                     <StyledNavLink to="/bookings">
-                    <HiCalendarDays />
-                    <span>Bookings</span>
+                        <HiCalendarDays />
+                        <span>Bookings</span>
                     </StyledNavLink>
                 </li>
                 <li>
                     <StyledNavLink to="/cabins">
-                    <HiOutlineHomeModern />
-                    <span>Cabins</span>
+                        <HiOutlineHomeModern />
+                        <span>Cabins</span>
                     </StyledNavLink>
                 </li>
                 <li>
                     <StyledNavLink to="/users">
-                    <HiOutlineUsers />
-                    <span>Users</span>
+                        <HiOutlineUsers />
+                        <span>Users</span>
                     </StyledNavLink>
                 </li>
                 <li>
                     <StyledNavLink to="/settings">
-                    <HiOutlineCog6Tooth />
-                    <span>Settings</span>
+                        <HiOutlineCog6Tooth />
+                        <span>Settings</span>
                     </StyledNavLink>
                 </li>
-
-            
             </NavList>
         </nav>
     );

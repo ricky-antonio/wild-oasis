@@ -8,11 +8,16 @@ const StyledLogo = styled.div`
 const Img = styled.img`
     height: 9.6rem;
     width: auto;
+
+    @media (max-width: 900px) {
+        height: 5rem;
+    width: auto;
+    }
 `;
 
 const Logo = () => {
     const { isDarkMode } = useDarkMode();
-    const src = isDarkMode ? "/logo-dark.png" :"/logo-light.png"
+    const src = isDarkMode ? "/wild-oasis-admin/logo-dark.png" :"/wild-oasis-admin/logo-light.png"
     return (
         <StyledLogo>
             <Img src={src} alt="Logo" />
